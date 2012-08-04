@@ -168,45 +168,45 @@ let g:SimpleJsIndenter_BriefMode = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " CTags的设定 
 
-"生成一个tags文件
-"nmap <F8> <Esc>:!ctags -R *<CR>
-" 按照名称排序 
-let Tlist_Sort_Type = "name" 
-" 在右侧显示窗口 
-let Tlist_Use_Right_Window = 1 
-" 压缩方式 Remove extra information and blank lines from the taglist window. 
-let Tlist_Compact_Format = 1 
-" 如果只有一个buffer，kill窗口也kill掉buffer 
-let Tlist_Exit_OnlyWindow = 1 
-"auto open Tlist when vim open 
-let Tlist_Auto_Open = 0 
-" 不要显示折叠树 
-let Tlist_Enable_Fold_Column = 1
-" taglist 窗口宽度 
-let Tlist_WinWidth = 22 
-" no inc the width of the windows 
-let Tlist_Inc_Winwidth = 1 
-" Close tag folds for inactive buffers. 
-let Tlist_File_Fold_Auto_Close = 1 
-"To process files even when the taglist window is not open. 
-let Tlist_Process_File_Always = 1 
-"display the tags defined only in the current buffer 
-let Tlist_Show_One_File = 1 
+""生成一个tags文件
+""nmap <F8> <Esc>:!ctags -R *<CR>
+"" 按照名称排序 
+"let Tlist_Sort_Type = 'name'
+"" 在右侧显示窗口 
+"let Tlist_Use_Right_Window = 1 
+"" 压缩方式 Remove extra information and blank lines from the taglist window. 
+"let Tlist_Compact_Format = 1 
+"" 如果只有一个buffer，kill窗口也kill掉buffer 
+"let Tlist_Exit_OnlyWindow = 1 
+""auto open Tlist when vim open 
+"let Tlist_Auto_Open = 0 
+"" 不要显示折叠树 
+"let Tlist_Enable_Fold_Column = 1
+"" taglist 窗口宽度 
+"let Tlist_WinWidth = 22 
+"" no inc the width of the windows 
+"let Tlist_Inc_Winwidth = 1 
+"" Close tag folds for inactive buffers. 
+"let Tlist_File_Fold_Auto_Close = 1 
+""To process files even when the taglist window is not open. 
+"let Tlist_Process_File_Always = 1 
+""display the tags defined only in the current buffer 
+"let Tlist_Show_One_File = 1 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " Tag list (ctags)
-
-let Tlist_Ctags_Cmd = 'ctags'
-"不同时显示多个文件的tag，只显示当前文件的
-let Tlist_Show_One_File = 1          
-"如果taglist窗口是最后一个窗口，则退出vim
-let Tlist_Exit_OnlyWindow = 1
-"在右侧窗口中显示taglist窗口 
-let Tlist_Use_Right_Window = 1         
-"显示taglist菜单 
-let Tlist_Show_Menu = 1
+"
+"let Tlist_Ctags_Cmd = 'ctags'
+""不同时显示多个文件的tag，只显示当前文件的
+"let Tlist_Show_One_File = 1          
+""如果taglist窗口是最后一个窗口，则退出vim
+"let Tlist_Exit_OnlyWindow = 1
+""在右侧窗口中显示taglist窗口 
+"let Tlist_Use_Right_Window = 1         
+""显示taglist菜单 
+"let Tlist_Show_Menu = 1
 "启动vim自动打开taglist
 "let Tlist_Auto_Open = 1
 
@@ -236,6 +236,8 @@ nnoremap f :NERDTreeToggle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "SVN settings 
 
+"添加当前文件
+map <F4>    :!svn add %<cr>
 "更新当前目录的代码
 map <F5>    :!svn up <cr>
 "提交SVN(当前文件)
