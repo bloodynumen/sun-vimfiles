@@ -1,8 +1,9 @@
-"解决乱码
-set fileencodings=utf-8,gb2312,gbk,gb18030
-set termencoding=utf-8
 "如果有这行 每行后面会有^m set fileformats=unix
-set encoding=prc
+set encoding=utf-8
+"解决乱码
+set fileencodings=ucs-bom,utf-8,chinese
+set fileencoding=utf-8
+"set fileencoding=
 
 "自动加载 修改后自动生效 不需要重启 autoload _vimrc
 " Automatic updating vimrc 
