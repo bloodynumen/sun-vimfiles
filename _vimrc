@@ -207,6 +207,26 @@ let g:closetag_html_style=1
 
 au Filetype html,xml,xsl source $VIM/vimfiles/scripts/closetag.vim 
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"doxygen toolkit 
+let g:DoxygenToolkit_paramTag_pre="@param "
+let g:DoxygenToolkit_briefTag_pre = "@brief "
+let g:DoxygenToolkit_returnTag="@returns "
+let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+let g:DoxygenToolkit_blockFooter="--------------------------------------------------------------------------"
+let g:DoxygenToolkit_licenseTag="GPL 2.0"
+let g:DoxygenToolkit_authorName="sunhuai(v_sunhuai@baidu.com)"
+
+
+let s:licenseTag = " Copyright (c) 2012 Baidu.com, Inc. All Rights Reserved"
+let s:licenseTag = s:licenseTag . "**************************************************************************"
+let s:licenseTag = s:licenseTag . ""
+let g:DoxygenToolkit_licenseTag = s:licenseTag
+let g:DoxygenToolkit_briefTag_funcName="yes"
+let g:doxygen_enhanced_color=1
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "SVN settings 
 
