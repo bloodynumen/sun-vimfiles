@@ -210,21 +210,17 @@ au Filetype html,xml,xsl source $VIM/vimfiles/scripts/closetag.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "doxygen toolkit 
-let g:DoxygenToolkit_paramTag_pre="@param "
 let g:DoxygenToolkit_briefTag_pre = "@brief "
+let g:DoxygenToolkit_paramTag_pre="@param "
 let g:DoxygenToolkit_returnTag="@returns "
 let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
 let g:DoxygenToolkit_blockFooter="--------------------------------------------------------------------------"
 let g:DoxygenToolkit_licenseTag="GPL 2.0"
 let g:DoxygenToolkit_authorName="sunhuai(v_sunhuai@baidu.com)"
 
-
-let s:licenseTag = " Copyright (c) 2012 Baidu.com, Inc. All Rights Reserved"
-let s:licenseTag = s:licenseTag . "**************************************************************************"
-let s:licenseTag = s:licenseTag . ""
-let g:DoxygenToolkit_licenseTag = s:licenseTag
-let g:DoxygenToolkit_briefTag_funcName="yes"
-let g:doxygen_enhanced_color=1
+map <C-F1> :DoxLic<cr>
+map <C-F2> :DoxAuthor<cr>
+map <C-F3> :Dox<cr>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -235,7 +231,7 @@ map <F4>    :!svn add %<cr>
 "更新当前目录的代码
 map <F5>    :!svn up <cr>
 "提交SVN(当前文件)
-map <F6>    :!svn ci -m "" %<cr>
+map <F6>    :!svn ci -m "" %
 "提交SVN(当前目录)
 map <F7>    :!svn ci -m "" <cr>
 
