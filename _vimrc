@@ -213,8 +213,6 @@ au Filetype html,xml,xsl source $VIM/vimfiles/scripts/closetag.vim
 let g:DoxygenToolkit_briefTag_pre = "@brief "
 let g:DoxygenToolkit_paramTag_pre="@param "
 let g:DoxygenToolkit_returnTag="@returns "
-let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
-let g:DoxygenToolkit_blockFooter="--------------------------------------------------------------------------"
 let g:DoxygenToolkit_licenseTag="GPL 2.0"
 let g:DoxygenToolkit_authorName="sunhuai(v_sunhuai@baidu.com)"
 
