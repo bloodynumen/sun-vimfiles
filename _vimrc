@@ -119,7 +119,7 @@ set hid
 " set ignorecase
 set incsearch
  
-"将搜索的家国高亮显示，将十分的直观
+"将搜索的结果高亮显示，将十分的直观
 "开启:
 set hlsearch
 
@@ -161,6 +161,8 @@ endif
 
 colorscheme ansi_blows
 
+"fullscreen
+au GUIEnter * simalt ~x
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "python
