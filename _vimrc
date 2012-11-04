@@ -165,22 +165,200 @@ colorscheme ansi_blows
 au GUIEnter * simalt ~x
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"自动补全括号 引号
+
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {<CR>}<Esc>O
+autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap } <c-r>=CloseBracket()<CR>
+inoremap " <c-r>=QuoteDelim('"')<CR>
+inoremap ' <c-r>=QuoteDelim("'")<CR>
+
+fun! ClosePair(char)
+ if getline('.')[col('.') - 1] == a:char
+ return "\<Right>"
+ else
+ return a:char
+ endif
+endf
+
+fun! CloseBracket()
+ if match(getline(line('.') + 1), '\s*}') < 0
+ return "\<CR>}"
+ else
+ return "\<Esc>j0f}a"
+ endif
+endf
+
+fun! QuoteDelim(char)
+ let line = getline('.')
+ let col = col('.')
+ if line[col - 2] == "\\"
+ "Inserting a quoted quotation mark into the string
+ return a:char
+ elseif line[col - 1] == a:char
+ "Escaping out of the string
+ return "\<Right>"
+ else
+ "Starting a string
+ return a:char.a:char."\<Esc>i"
+ endif
+endf
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"Vundle
+filetype off
+set rtp+=$VIM./vimfiles/bundle/vundle/
+call vundle#rc('$VIM/vimfiles/bundle/')
+
+" Let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+Bundle 'bufexplorer.zip'
+Bundle 'closetag.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'DoxygenToolkit.vim'
+Bundle 'JavaScript-Indent'
+Bundle 'indentpython.vim'
+Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'L9'
+Bundle 'neocomplcache'
+Bundle 'snipMate'
+Bundle 'unite.vim'
+
+filetype plugin indent on
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"pathogen
+"call pathogen#infect()
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "python
 map <F2> :!python.exe %
+
+"python 自动补全插件
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "JavaScript
 "配置缩进插件
+
 let g:SimpleJsIndenter_BriefMode = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"Powerline 
+
+let g:Powerline_symbols = 'fancy'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " CTags的设定 
 
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " Tag list (ctags)
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+" AutoComplPop
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+" neocomplcache
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Use camel case completion.
+let g:neocomplcache_enable_camel_case_completion = 1
+" Use underbar completion.
+let g:neocomplcache_enable_underbar_completion = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplcache_enable_auto_select = 1
+" snipMate
+let g:neocomplcache_snippets_dir='$VIM/bundle/snipMate/snippets'
+" When you input 'ho-a',neocomplcache will select candidate 'a'. 使用unite实现 因最新版的已不支持此特性
+"let g:neocomplcache_start_unite_quick_match = 1
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
+
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+  let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+"imap <expr> -  pumvisible() ? 
+"    \ "\<Plug>(neocomplcache_start_unite_quick_match)" : '-'
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+" AutoComplPop like behavior.
+"let g:neocomplcache_enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplcache_enable_auto_select = 1
+"let g:neocomplcache_disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>"
+"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+" BufExplorer
+map <C-F4> :BufExplorer<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+" L9
+let g:acp_ignorecaseOption = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -198,7 +376,12 @@ let NERDTreeWinPos='left'
 let NERDTreeWinSize=31
 nnoremap f :NERDTreeToggle
 "默认打开 NERD Tree
-"autocmd VimEnter * NERDTree
+autocmd VimEnter * NERDTree
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"indent JavaScript indenter (HTML indent is included) 
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -207,11 +390,12 @@ nnoremap f :NERDTreeToggle
 
 let g:closetag_html_style=1 
 
-au Filetype html,xml,xsl source $VIM/vimfiles/scripts/closetag.vim 
+au Filetype html,xml,xsl source $VIM/vimfiles/bundle/closetag/closetag.vim 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "doxygen toolkit 
+
 let g:DoxygenToolkit_briefTag_pre = "@brief "
 let g:DoxygenToolkit_paramTag_pre="@param "
 let g:DoxygenToolkit_returnTag="@returns "
