@@ -210,29 +210,29 @@ endf
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "Vundle
-filetype off
-set rtp+=$VIM./vimfiles/bundle/vundle/
-call vundle#rc('$VIM/vimfiles/bundle/')
-
-" Let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-Bundle 'bufexplorer.zip'
-Bundle 'closetag.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'DoxygenToolkit.vim'
-Bundle 'JavaScript-Indent'
-Bundle 'indentpython.vim'
-Bundle 'Lokaltog/vim-powerline.git'
-Bundle 'L9'
-Bundle 'neocomplcache'
-Bundle 'snipMate'
-Bundle 'unite.vim'
+"filetype off
+"set rtp+=$VIM./vimfiles/bundle/vundle/
+"call vundle#rc('$VIM/vimfiles/bundle/')
+"
+"" Let Vundle manage Vundle
+"Bundle 'gmarik/vundle'
+"Bundle 'bufexplorer.zip'
+"Bundle 'closetag.vim'
+"Bundle 'scrooloose/nerdtree'
+"Bundle 'DoxygenToolkit.vim'
+"Bundle 'JavaScript-Indent'
+"Bundle 'indentpython.vim'
+"Bundle 'Lokaltog/vim-powerline.git'
+"Bundle 'L9'
+"Bundle 'neocomplcache'
+"Bundle 'snipMate'
+"Bundle 'unite.vim'
 
 filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "pathogen
-"call pathogen#infect()
+call pathogen#infect()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
