@@ -377,6 +377,8 @@ let NERDTreeWinSize=31
 nnoremap f :NERDTreeToggle
 "默认打开 NERD Tree
 autocmd VimEnter * NERDTree
+"默认新标签页打开 NERD Tree
+"autocmd BufRead * 25vsp ./
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 

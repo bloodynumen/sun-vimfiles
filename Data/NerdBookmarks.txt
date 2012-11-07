@@ -1,0 +1,3 @@
+<mis-extends> Z:\module\extends\.
+<mis-views> Z:\app\yule\.\Applications
+
