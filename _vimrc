@@ -149,6 +149,8 @@ set backspace=start,indent,eol
 "map <C-Tab> :bn<CR>
 "map <S-Tab> :bp<CR>
 
+" font settings
+set guifont=Bitstream\ Vera\ Sans\ Mono:h12:w7
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "常规界面设置
@@ -159,7 +161,7 @@ if has("gui_running")
     set lines=35             " 设置长
 endif
 
-colorscheme ansi_blows
+colorscheme symfony
 
 "fullscreen
 au GUIEnter * simalt ~x
@@ -251,7 +253,6 @@ let g:SimpleJsIndenter_BriefMode = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "Powerline 
 
-let g:Powerline_symbols = 'fancy'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
