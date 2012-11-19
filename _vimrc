@@ -21,13 +21,13 @@ filetype plugin indent on
 "Toggle Menu and Toolbar
 set guioptions-=m
 set guioptions-=T
-map <silent> <F1> :if &guioptions =~# 'T' <Bar>
-        \set guioptions-=T <Bar>
-        \set guioptions-=m <bar>
-    \else <Bar>
-        \set guioptions+=T <Bar>
-        \set guioptions+=m <Bar>
-    \endif<CR>
+"map <silent> <F1> :if &guioptions =~# 'T' <Bar>
+"        \set guioptions-=T <Bar>
+"        \set guioptions-=m <bar>
+"    \else <Bar>
+"        \set guioptions+=T <Bar>
+"        \set guioptions+=m <Bar>
+"    \endif<CR>
 
 " Enable syntax highlight
 syntax enable
@@ -374,8 +374,8 @@ let NERDTreeShowFiles=1
 let NERDTreeShowHidden=1
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos='left'
-let NERDTreeWinSize=31
-nnoremap f :NERDTreeToggle
+let NERDTreeWinSize=28
+nnoremap tree :NERDTreeToggle
 "默认打开 NERD Tree
 autocmd VimEnter * NERDTree
 "默认新标签页打开 NERD Tree
