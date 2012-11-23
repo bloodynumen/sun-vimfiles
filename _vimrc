@@ -152,6 +152,9 @@ set backspace=start,indent,eol
 " font settings
 set guifont=Bitstream\ Vera\ Sans\ Mono:h12:w7
 
+" <leader> 
+let mapleader=","
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "常规界面设置
 
@@ -408,6 +411,27 @@ let g:DoxygenToolkit_authorName="sunhuai(v_sunhuai@baidu.com)"
 map <C-F1> :DoxLic<cr>
 map <C-F2> :DoxAuthor<cr>
 map <C-F3> :Dox<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"VCS 
+"设置 <leader> 标签 VCS 的快捷键即可用，试试,cc
+"   <Leader>ca VCSAdd
+"   <Leader>cn VCSAnnotate
+"   <Leader>cN VCSAnnotate!
+"   <Leader>cc VCSCommit
+"   <Leader>cD VCSDelete
+"   <Leader>cd VCSDiff
+"   <Leader>cg VCSGotoOriginal
+"   <Leader>cG VCSGotoOriginal!
+"   <Leader>ci VCSInfo
+"   <Leader>cl VCSLog
+"   <Leader>cL VCSLock
+"   <Leader>cr VCSReview
+"   <Leader>cs VCSStatus
+"   <Leader>cu VCSUpdate
+"   <Leader>cU VCSUnlock
+"   <Leader>cv VCSVimDiff
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
