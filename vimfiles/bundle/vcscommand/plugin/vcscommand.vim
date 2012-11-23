@@ -901,6 +901,7 @@ function! s:VCSCommit(bang, message)
 		endif
 
 		silent put ='VCS: ----------------------------------------------------------------------'
+		silent put ='update'
 		$
 		setlocal nomodified
 		silent do VCSCommand User VCSBufferCreated
