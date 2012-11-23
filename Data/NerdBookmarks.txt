@@ -1,7 +1,0 @@
-<billboard-views-tpl> Z:\app\yule\.\Applications\billboard\tpl
-<channel-extends> Z:\module\extends\.\channel
-<channel-views> Z:\app\yule\.\Applications\ting_channel_manage\tpl\datalist
-<mis-css> Z:\app\yule\.\Applications\common\resources\css
-<mis-extends> Z:\module\extends\.
-<mis-views> Z:\app\yule\.\Applications
-
