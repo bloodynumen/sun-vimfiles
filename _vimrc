@@ -445,4 +445,4 @@ map <C-F3> :Dox<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "map settings 
 
-map <F1> : let @+=expand('%:p:r:s')<cr>
+map <F1> : let @+=expand('%:p')<cr>
