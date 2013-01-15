@@ -41,6 +41,8 @@ set nocompatible
 " Show line number
 set nu
 
+set autochdir
+
 " 关闭声音
 set noerrorbells
 set novisualbell
@@ -214,6 +216,12 @@ fun! QuoteDelim(char)
 endf
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"一些tools
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "Vundle
 "filetype off
 "set rtp+=$VIM./vimfiles/bundle/vundle/
@@ -380,7 +388,7 @@ let NERDTreeWinPos='left'
 let NERDTreeWinSize=28
 nnoremap tree :NERDTreeToggle
 "默认打开 NERD Tree
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree
 "默认新标签页打开 NERD Tree
 "autocmd BufRead * 25vsp ./
 
@@ -435,18 +443,6 @@ map <C-F3> :Dox<cr>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-"SVN settings 
-
-"添加当前文件
-map <F4>    :!svn add %<cr>
-"更新当前目录的代码
-map <F5>    :!svn up <cr>
-"提交SVN(当前文件)
-map <F6>    :!svn ci -m "" %
-"提交SVN(当前目录)
-map <F7>    :!svn ci -m "" <cr>
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "map settings 
-map <F9> "*p
+
+map <F1> : let @+=expand('%:p:r:s')<cr>
