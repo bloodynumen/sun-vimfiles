@@ -151,9 +151,6 @@ set backspace=start,indent,eol
 "map <C-Tab> :bn<CR>
 "map <S-Tab> :bp<CR>
 
-" font settings
-set guifont=Bitstream\ Vera\ Sans\ Mono:h12:w7
-
 " <leader> 
 let mapleader=","
 
@@ -167,6 +164,9 @@ if has("gui_running")
 endif
 
 colorscheme symfony
+
+" font settings
+set guifont=Bitstream\ Vera\ Sans\ Mono:h12:w7
 
 "fullscreen
 au GUIEnter * simalt ~x
