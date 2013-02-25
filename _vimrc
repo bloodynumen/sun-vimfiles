@@ -215,6 +215,7 @@ fun! QuoteDelim(char)
  endif
 endf
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "一些tools
 
@@ -249,11 +250,49 @@ call pathogen#infect()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"C语言编译工具函数配置
+
+fun! CompileRun()  
+exec "w"  
+"C程序  
+if &filetype == 'c'  
+exec "!gcc -Wl,-enable-auto-import % -g -o %<.exe"  
+"c++程序  
+elseif &filetype == 'cpp'  
+exec "!g++ -Wl,-enable-auto-import % -g -o %<.exe"  
+endif  
+endf
+"结束定义CompileRun  
+
+"定义Run函数  
+fun! Run()  
+if &filetype == 'c' || &filetype == 'cpp'  
+exec "!%<.exe"  
+endif  
+endf
+"结束定义Run  
+  
+"定义Debug函数，用来调试程序  
+fun! Debug()  
+exec "w"  
+"C程序  
+if &filetype == 'c'  
+exec "!gcc % -g -o %<.exe"  
+exec "!gdb %<.exe"  
+elseif &filetype == 'cpp'  
+exec "!g++ % -g -o %<.exe"  
+exec "!gdb %<.exe"  
+endif  
+endf
+"结束定义Debug  
+
+map <F2> :call CompileRun()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "python
-map <F2> :!python.exe %
+map <F3> :!python.exe %
 
 "python 自动补全插件
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "JavaScript
