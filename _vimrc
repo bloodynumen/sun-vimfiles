@@ -250,7 +250,8 @@ call pathogen#infect()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-"C语言编译工具函数配置
+"C
+"语言编译工具函数配置
 
 fun! CompileRun()  
 exec "w"  
@@ -286,13 +287,20 @@ endif
 endf
 "结束定义Debug  
 
-map <F2> :call CompileRun()<CR>
+map <F3> :call CompileRun()<CR>
+map <F4> :call Debug()<CR>
+map <F5> :call Run()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "python
-map <F3> :!python.exe %
+"语言编译工具函数配置
 
-"python 自动补全插件
+fun! PythonRun()  
+exec "!python.exe %"
+endf
+
+"map <F2> :!python.exe %<CR>
+map <F2> :call PythonRun()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "JavaScript
