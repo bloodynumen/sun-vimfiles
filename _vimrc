@@ -490,7 +490,7 @@ exec "!python.exe %"
 endf
 
 "map <F2> :!python.exe %<CR>
-map <F2> :call PythonRun()<CR>
+map <F3> :call PythonRun()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "php
@@ -499,7 +499,7 @@ fun! PhpRun()
 exec "!php.exe %"
 endf
 
-map <F3> :call PhpRun()<CR>
+map <F2> :call PhpRun()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "JavaScript
