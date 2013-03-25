@@ -217,8 +217,7 @@ endf
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-"一些tools
-
+"一些tools设置
 
 
 
@@ -248,65 +247,6 @@ filetype plugin indent on
 "pathogen
 call pathogen#infect()
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-"C
-"语言编译工具函数配置
-
-fun! CompileRun()  
-exec "w"  
-"C程序  
-if &filetype == 'c'  
-exec "!gcc -Wl,-enable-auto-import % -g -o %<.exe"  
-"c++程序  
-elseif &filetype == 'cpp'  
-exec "!g++ -Wl,-enable-auto-import % -g -o %<.exe"  
-endif  
-endf
-"结束定义CompileRun  
-
-"定义Run函数  
-fun! Run()  
-if &filetype == 'c' || &filetype == 'cpp'  
-exec "!%<.exe"  
-endif  
-endf
-"结束定义Run  
-  
-"定义Debug函数，用来调试程序  
-fun! Debug()  
-exec "w"  
-"C程序  
-if &filetype == 'c'  
-exec "!gcc % -g -o %<.exe"  
-exec "!gdb %<.exe"  
-elseif &filetype == 'cpp'  
-exec "!g++ % -g -o %<.exe"  
-exec "!gdb %<.exe"  
-endif  
-endf
-"结束定义Debug  
-
-map <F3> :call CompileRun()<CR>
-map <F4> :call Debug()<CR>
-map <F5> :call Run()<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-"python
-"语言编译工具函数配置
-
-fun! PythonRun()  
-exec "!python.exe %"
-endf
-
-"map <F2> :!python.exe %<CR>
-map <F2> :call PythonRun()<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-"JavaScript
-"配置缩进插件
-
-let g:SimpleJsIndenter_BriefMode = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "Powerline 
@@ -491,5 +431,78 @@ map <C-F3> :Dox<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "map settings 
+"复制当前路径到剪切板
+map <F1> : call CurrentPath()<cr>
 
-map <F1> : let @+=expand('%:p')<cr>
+fun! CurrentPath()
+ let path = expand('%:p')
+ let @+ = substitute(path, '\', '/', 'g')
+endf
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"C
+"语言编译工具函数配置
+
+fun! CompileRun()  
+exec "w"  
+"C程序  
+if &filetype == 'c'  
+exec "!gcc -Wl,-enable-auto-import % -g -o %<.exe"  
+"c++程序  
+elseif &filetype == 'cpp'  
+exec "!g++ -Wl,-enable-auto-import % -g -o %<.exe"  
+endif  
+endf
+"结束定义CompileRun  
+
+"定义Run函数  
+fun! Run()  
+if &filetype == 'c' || &filetype == 'cpp'  
+exec "!%<.exe"  
+endif  
+endf
+"结束定义Run  
+  
+"定义Debug函数，用来调试程序  
+fun! Debug()  
+exec "w"  
+"C程序  
+if &filetype == 'c'  
+exec "!gcc % -g -o %<.exe"  
+exec "!gdb %<.exe"  
+elseif &filetype == 'cpp'  
+exec "!g++ % -g -o %<.exe"  
+exec "!gdb %<.exe"  
+endif  
+endf
+"结束定义Debug  
+
+map <F4> :call CompileRun()<CR>
+map <F5> :call Debug()<CR>
+map <F6> :call Run()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"python
+"语言编译工具函数配置
+
+fun! PythonRun()  
+exec "!python.exe %"
+endf
+
+"map <F2> :!python.exe %<CR>
+map <F2> :call PythonRun()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"php
+
+fun! PhpRun()  
+exec "!php.exe %"
+endf
+
+map <F3> :call PhpRun()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"JavaScript
+"配置缩进插件
+
+let g:SimpleJsIndenter_BriefMode = 1
