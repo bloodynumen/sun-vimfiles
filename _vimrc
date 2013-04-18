@@ -434,6 +434,8 @@ if has('win32')
 endif
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
+"let Tlist_Auto_Open=1
+map <F10> : Tlist<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "C
@@ -502,3 +504,9 @@ map <F2> :call PhpRun()<CR>
 "配置缩进插件
 
 let g:SimpleJsIndenter_BriefMode = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"Zend Coding
+"HTML CSS
+"配置缩进插件
+
+let g:user_zen_leader_key = '<c-m>'
