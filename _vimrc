@@ -249,19 +249,6 @@ call pathogen#infect()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-"Powerline 
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-" CTags的设定 
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-" Tag list (ctags)
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " AutoComplPop
 
 
@@ -379,12 +366,6 @@ nnoremap tree :NERDTreeToggle
 "默认新标签页打开 NERD Tree
 "autocmd BufRead * 25vsp ./
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-"indent JavaScript indenter (HTML indent is included) 
-
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "closetag settings
 ""使用CTRL-_
@@ -438,6 +419,21 @@ fun! CurrentPath()
  let path = expand('%:p')
  let @+ = substitute(path, '\', '/', 'g')
 endf
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"针对不同变成语言所做的配置 below
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"Taglist
+"注意ctags的路径
+
+""let Tlist_Auto_Open = 1
+if has('win32')
+    let Tlist_Ctags_Cmd = $VIM . '/vimfiles/others/ctags/ctags.exe'
+endif
+let Tlist_Show_One_File = 1
+let Tlist_Exit_OnlyWindow = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "C
