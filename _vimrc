@@ -513,6 +513,11 @@ endf
 
 map <F2> :call PhpRun()<CR>
 
+fun! PhpSyntaxValid()  
+exec "!php.exe -l %"
+endf
+
+map <F7> :call PhpSyntaxValid()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "JavaScript
 "配置缩进插件
