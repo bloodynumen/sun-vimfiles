@@ -139,8 +139,10 @@ set mat=4
 " Highlight search things
 set hlsearch
  
-" Turn backup off
-set nobackup
+" Turn backup on
+set backup
+set backupdir=F:/backup/vim
+autocmd BufWritePre * let &backupext = '.' . strftime("%Y%m%d%H%M%S") . '.bak'
 set nowb
 set noswapfile
 
